@@ -1,0 +1,35 @@
+trix-editor {
+  ul {
+    li::before {
+      content: "• ";
+      color: black;
+    }
+  }
+
+  ol {
+    li::before {
+      //content: "• ";
+      color: black;
+    }
+  }
+
+}
+
+trix-toolbar {
+  button {
+    &.quote {
+      display: none;
+    }
+    &.block-level {
+      display: none;
+    }
+  }
+
+  span {
+    &.button_group {
+      &.history_tools {
+        display: none;
+      }
+    }
+  }
+}

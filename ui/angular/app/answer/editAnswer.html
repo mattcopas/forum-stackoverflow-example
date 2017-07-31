@@ -1,0 +1,19 @@
+<form ng-submit="editAnswer()" method="POST">
+
+    {{answer.body}}
+
+    <!-- Angular Trix -->
+    <trix-editor
+            class="trix-content"
+            angular-trix
+            ng-model="answer.body"
+            trix-initialize="trixInitialize(e, editor);"
+            trix-change="trixChange(e, editor);"
+            trix-selection-change="trixSelectionChange(e, editor);"
+    >
+    </trix-editor>
+    <button class="btn mtl waves-effect waves-light" type="submit">
+        <i class="fa fa-paper-plane left"></i>Edit
+    </button>
+</form>
+

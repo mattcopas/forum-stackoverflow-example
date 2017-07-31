@@ -1,0 +1,48 @@
+<div class="ptl">
+    <h2>Ask Question</h2>
+    <hr>
+    <div class="ptl">
+        <form method="post" id="ask-question-form" ng-submit="submitQuestion()">
+            <div class="input-field">
+                <!--<i class="fa fa-pencil fa-2x left grey-text"></i>-->
+                <input ng-model="question.title" type="text" id="title_text" class="validate" length="255" minlength="6" required="">
+                <label for="title_text">Title</label>
+                <div class="similar-posts pll mll mbs">
+
+                </div>
+            </div>
+
+            <!-- Angular Trix -->
+            <trix-editor
+                    class="trix-content"
+                    angular-trix
+                    ng-model="question.body"
+                    trix-initialize="trixInitialize(e, editor);"
+                    trix-change="trixChange(e, editor);"
+                    trix-selection-change="trixSelectionChange(e, editor);"
+            >
+            </trix-editor>
+
+            <div class="autocomplete">
+                <!--<i class="fa fa-tag fa-2x ptl grey-text"></i>-->
+                <!--<div class="ac-tags ac-appender"></div>-->
+                <div class="ac-input input-field">
+                    <label for="tags_text">Tags</label>
+                    <input type="text" id="tags_text" class="tagbox" data-activates="tags-dropdown" data-beloworigin="true" autocomplete="off"><ul id="tags-dropdown" class="dropdown-content ac-dropdown" style="width: 1237.56px; position: absolute; top: 45px; left: 0px; opacity: 1; display: none;"></ul>
+                </div>
+                <input type="hidden" name="tags" class="ac-hidden" value="">
+            </div>
+            <div class="input-field hide">
+                <i class="fa fa-map-marker ptm prefix grey-text"></i>
+                <label for="location_text">Location</label>
+                <input id="location_text" name="location" class="locationbox validate" type="text" value="" placeholder="Enter a query" autocomplete="off">
+                <input type="hidden" name="latlng" value="">
+                <input type="hidden" name="address" value="">
+            </div>
+            <div><i class="fa fa-save save-icon green-text hidden-save-icon" style="display: none;"></i> &nbsp;</div>
+            <button class="btn mtl waves-effect waves-light" type="submit">
+                <i class="fa fa-paper-plane left"></i>Go
+            </button>
+        </form>
+    </div>
+</div>

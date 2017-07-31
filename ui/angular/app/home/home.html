@@ -1,0 +1,129 @@
+<div class="ptl">
+    <div class="right mtl ptl">
+        <!--<button ng-click="sortQuestions('createdAt')" ng-class="{'darken-2': selectedSort('createdAt')}" class="sort-button chip grey white-text">Newest</button>-->
+        <button ng-click="sortQuestions('createdAt')" class="sort-button chip grey darken-2 white-text">Newest
+            <span ng-hide="showAndHideCaretIcon('createdAt') === true"><i class="fa fa-caret-down"></i></span>
+            <span ng-show="showAndHideCaretIcon('createdAt') === true"><i class="fa fa-caret-up"></i></span>
+        </button>
+        <button ng-click="sortQuestions('updatedAt')" class="sort-button chip grey darken-2 white-text">Last Updated
+            <span ng-hide="showAndHideCaretIcon('updatedAt') === true"><i class="fa fa-caret-down"></i></span>
+            <span ng-show="showAndHideCaretIcon('updatedAt') === true"><i class="fa fa-caret-up"></i></span>
+        </button>
+        <button ng-click="sortQuestions('numberOfAnswers')" class="sort-button chip grey darken-2 white-text">Answers
+            <span ng-show="showCaretDown('numberOfAnswers') === true"><i class="fa fa-caret-down"></i></span>
+            <span ng-show="showCaretUp('numberOfAnswers') === true"><i class="fa fa-caret-up"></i></span>
+        </button>
+        <button ng-disabled="true" ng-click="sortQuestions('votes')" class="sort-button chip grey darken-2 white-text">Votess
+            <span ng-show="showCaretDown('votes')"><i class="fa fa-caret-down"></i></span>
+            <span ng-show="showCaretUp('votes')"><i class="fa fa-caret-up"></i></span>
+        </button>
+    </div>
+
+    <h2>
+        Questions </h2>
+    <hr>
+
+    <div ng-if="questions.length == 0" class="card-panel hugeText center-align grey-text">
+        <div class="em5v">
+            No questions.
+        </div>
+    </div>
+
+    <div ng-repeat="question in abbreviatedQuestions | orderBy:sort.propertyName:sort.ascending" class="card-panel">
+        <div class="row mbn">
+            <!-- Question Stats -->
+            <div class="col m2 l1 center-align hide-on-med-and-down">
+                <div class="qstatsbox">
+                    <div class="mvs lightborder tooltipped " data-tooltip="Votes">
+                        {{question.votes}}
+                        <small ng-if="question.votes == 1" class="hide-on-med-and-down">Vote</small>
+                        <small ng-if="question.votes != 1" class="hide-on-med-and-down">Votes</small>
+                    </div>
+                    <div class="mvs lightborder tooltipped orange lighten-5" data-tooltip="Answers">
+                        {{question.numberOfAnswers}}
+                        <small ng-if="question.numberOfAnswers == 1" class="hide-on-med-and-down">Answer</small>
+                        <small ng-if="question.numberOfAnswers != 1" class="hide-on-med-and-down">Answers</small>
+                    </div>
+                    <div class="mvs lightborder tooltipped" data-tooltip="Views">
+                        {{question.viewedCount}}
+                        <small ng-if="question.viewedCount == 1" class="hide-on-med-and-down">View</small>
+                        <small ng-if="question.viewedCount != 1" class="hide-on-med-and-down">Views</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col m10 l11">
+                <div class="row mbn">
+                    <div class="col s10 m11 l9">
+                        <!-- Question Title -->
+                        <div class="mbm mediumText">
+                            <a href="/#/question/{{question.id}}"
+                               class="mediumText">
+                                {{question.title}}
+                            </a>
+                        </div>
+                        <!-- Question body (limit number of characters with ellipsis) -->
+                        <div class="mbs">
+                            <div ng-bind-html="question.body">
+                                {{question.body}}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- User info -->
+                    <div class="col s2 m1 l3">
+                        <div class=" hide-on-med-and-down">
+                            <div class="row mbn userbox user-791697816324935680:profile">
+                                <div class="col s4 m4 l3">
+                                    <a href="/profile/791697816324935680/dimitar-uzunov"
+                                       title="{{question.userViewDTO.displayName}}">
+                                        <img src="/static/images/default-profile-picture.jpg"
+                                             width="50" height="50" alt="Profile picture">
+                                    </a>
+                                </div>
+                                <div class="col s8 m8 l9">
+                                    <!--<div class="right">-->
+                                        <!--<a class="dropdown-button grey-text" href="#"-->
+                                           <!--data-constrainWidth="false" data-alignment="right"-->
+                                           <!--data-activates="M5hOyu5ywjJtXQ"><i class="fa fa-ellipsis-v"></i></a>-->
+                                        <!--<ul id="M5hOyu5ywjJtXQ" class="dropdown-content">-->
+                                            <!--<li><a href="#main-modal" title="Report a problem"-->
+                                                   <!--data-fetch="/reports/form?parentid=791697816324935680:profile&type=profile&link=%2Fprofile%2F791697816324935680%3Aprofile"-->
+                                                   <!--class="modal-trigger ">-->
+                                                <!--<span class="fa fa-flag"></span> Report-->
+                                            <!--</a>-->
+                                            <!--</li>-->
+                                        <!--</ul>-->
+                                    <!--</div>-->
+                                    <div>
+                                        <a href="/profile/791697816324935680/dimitar-uzunov"
+                                           class="smallText">{{question.userViewDTO.displayName}}</a>
+                                        <br>
+                                        <!--<span class="chip">5</span>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="hide-on-large-only">-->
+                            <!--<div>-->
+                                <!--<a href="/profile/791697816324935680/dimitar-uzunov"-->
+                                   <!--title="Dimitar Uzunov [5]">-->
+                                    <!--<img src="https://lh3.googleusercontent.com/-vBd54TBqPoc/AAAAAAAAAAI/AAAAAAAAAAA/675KbOvy5Jw/photo.jpg"-->
+                                         <!--width="32" height="32" alt="Profile picture">-->
+                                <!--</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+                <!-- Clock Since -->
+                <div class="row mbn">
+                    <div class="col m10">
+                        <div></div>
+                    </div>
+                    <div class="col m2 mlm grey-text r">
+                        <i class="fa fa-clock-o"></i>
+                        <span am-time-ago="question.createdAt"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

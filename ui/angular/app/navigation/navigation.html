@@ -1,0 +1,70 @@
+<div class="none">
+    <nav class="qa-nav">
+        <div class="nav-wrapper container">
+            <a href="#" data-activates="mobile-drawer" class="button-collapse"><i class="fa fa-bars fa-2x"></i></a>
+
+            <div class="brand-logo">
+                <a href="/">
+                    <!--<img src="/static/images/QAC_Logo.png" class="qac-logo" width="90" alt="scoold logo">-->
+                    <i class="qac-logo">
+                        <svg><use xlink:href="/static/images/logo.svg#logo" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
+                    </i>
+                </a>
+            </div>
+
+
+
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="#" class="toggle-drawer ">
+                        <i class="fa fa-search fa"></i>
+                    </a>
+                </li>
+                <li><a href="/" title="Questions" class="">Questions</a></li>
+                <!--<li><a href="/people" title="Users" class="">Users</a></li>-->
+                <!--<li><a href="/tags" title="Tags" class="">Tags</a></li>-->
+                <li ng-show="user.loggedIn"><a href="/#/ask" title="Ask Question" class="">Ask Question</a></li>
+                <li ng-hide="user.loggedIn"><a href="/#/login" title="Sign in" class="">Login</a></li>
+                <li ng-hide="user.loggedIn"><a href="/#/register" title="Sign in" class="">Register</a></li>
+                <li ng-show="user.loggedIn"><a href="/#/logout" title="Logout" class="">Logout</a></li>
+            </ul>
+
+            <ul class="side-nav" id="mobile-drawer">
+                <li>
+                    <nav class="light-blue z-depth-0">
+                        <div class="nav-wrapper">
+                            <form action="/search/all">
+                                <div class="input-field">
+                                    <input type="search" name="q" placeholder="Search" required>
+                                    <label class="label-icon" for="search"><i
+                                            class="fa fa-search fa-2x"></i></label>
+                                    <i class="material-icons fa fa-close"></i>
+                                </div>
+                            </form>
+                        </div>
+                    </nav>
+                </li>
+                <li ng-hide="user.loggedIn"><a href="/#/login" title="Login" class="">Login</a></li>
+                <li ng-hide="user.loggedIn"><a onclick="$('.side-nav').hide();" href="/#/register" title="Register" class="">Register</a></li>
+                <li ng-show="user.loggedIn"><a href="/#/logout" title="Logout" class="">Logout</a></li>
+                <li ng-show="user.loggedIn"><a href="/#/ask" title="Ask Question" class="">Ask Question</a></li>
+                <li><a href="/" title="Questions" class="navbtn-hover">Questions</a></li>
+                <li><a href="/people" title="Users" class="">Users</a></li>
+                <li><a href="/tags" title="Tags" class="">Tags</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <nav id="search-drawer" class="white z-depth-1 hide">
+        <div class="nav-wrapper container">
+            <form id="search-drawer" class="hide-on-med-and-down" action="/search">
+                <div class="input-field">
+                    <input id="search-box" type="search" name="q" placeholder="Search" required>
+                    <label class="label-icon" for="search-box"><i
+                            class="fa fa-search fa-2x grey-text"></i></label>
+                    <i class="material-icons fa fa-close grey-text toggle-drawer"></i>
+                </div>
+            </form>
+        </div>
+    </nav>
+</div>

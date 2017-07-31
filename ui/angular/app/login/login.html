@@ -1,0 +1,21 @@
+<div class="ptl">
+    <h2>Login</h2>
+    <hr>
+    <div class="ptl">
+        <form method="post" id="login-form" ng-submit="login()">
+            <div class="input-field">
+                <input ng-model="loginDetails.email" type="email" id="title_text" class="validate" length="255" minlength="6" required="">
+                <label for="title_text">Email</label>
+            </div>
+
+            <div class="input-field">
+                <input ng-model="loginDetails.password" type="password" id="title_text" class="validate" length="255" minlength="6" required="">
+                <label for="title_text">Password</label>
+            </div>
+
+            <button class="btn mtl waves-effect waves-light" type="submit">
+                <i class="fa fa-paper-plane left"></i>Go
+            </button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,281 @@
+<div class="ptl">
+    <div class="row">
+        <div class="col m12 l9">
+            <span ng-if="question.answers.length > 0" class="grey-text">
+                Answered
+            </span>
+            <span ng-hide="question.answers.length > 0" class="grey-text">
+                Not Answered
+            </span>
+            <!-- Question title -->
+            <div id="post-title" class="largeText">{{question.title}}</div>
+            <hr>
+            <!-- Question  -->
+            <div class="mbl pbl">
+                <div class="postbox questionbox">
+                    <div id="post-790367214896156672" class="viewbox mbm">
+                        <div class="postbody pvs" ng-bind-html="question.body">
+                            <p>{{question.body}}</p>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 m4 l4">
+                                <div class="left mtm mrl">
+                                </div>
+                                <div class="votebox hugeText mtm">
+                                    <i class="fa fa-chevron-up upvote grey-text mrs" title="Vote up"></i>
+                                    <i class="fa fa-chevron-down downvote grey-text mrs" title="Vote down"></i>
+                                    <span class="votecount">{{question.votes}}</span>
+                                </div>
+                            </div>
+                            <div class="col s12 m3 l4">
+                                <div class="ptl center-align">
+                                    <div>
+                                        Posted
+                                        <span am-time-ago="question.createdAt"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12 m5 l4">
+                                <!-- User Card -->
+                                <div class="card pam">
+                                    <div class="row mbn userbox user-790367148500324352:profile">
+                                        <div class="col s4 m4 l3">
+                                            <a href="#"
+                                               title="{{questionAuthor.displayName}}">
+                                                <img src="https://scontent.xx.fbcdn.net/v/t1.0-1/c240.0.480.480/p480x480/12295304_10156317975680268_2317889675573729123_n.jpg?oh=edc4364861b5af3d157a936ca50e9c28&amp;oe=59DA3734"
+                                                     width="50" height="50" alt="Profile picture">
+                                            </a>
+                                        </div>
+                                        <div class="col s8 m8 l9">
+                                            <!--<div class="right">-->
+                                                <!--<a class="dropdown-button grey-text" href="#"-->
+                                                   <!--data-constrainWidth="false" data-alignment="right"-->
+                                                   <!--data-activates="xiuJ6viTov8ZAQ"><i-->
+                                                        <!--class="fa fa-ellipsis-v"></i></a>-->
+                                                <!--<ul id="xiuJ6viTov8ZAQ" class="dropdown-content">-->
+                                                    <!--<li><a href="#main-modal" title="Report a problem"-->
+                                                           <!--data-fetch="/reports/form?parentid=790367148500324352:profile&type=profile&link=%2Fprofile%2F790367148500324352%3Aprofile"-->
+                                                           <!--class="modal-trigger ">-->
+                                                        <!--<span class="fa fa-flag"></span> Report-->
+                                                    <!--</a>-->
+                                                    <!--</li>-->
+                                                <!--</ul>-->
+                                            <!--</div>-->
+                                            <div>
+                                                <a href="/profile/790367148500324352/sherif-nada"
+                                                   class="smallText">{{questionAuthor.displayName}}</a>
+                                                <br>
+                                                <!--<span class="chip">19</span>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button ng-click="question.editMode = !question.editMode" ng-show="question.isEditable" class="btn mtl waves-effect waves-light">Edit</button>
+                            </div>
+                        </div>
+                        <div ng-show="question.editMode" class="card pam">
+                            <edit-question-form
+                                question="question"
+                            ></edit-question-form>
+                        </div>
+                    </div>
+                    <div class="comments post-comments">
+                        <div class="page-content"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Answer Head -->
+            <div class="answers-head ">
+                <span class="right">
+                <a href="/question/790367214896156672/test-question" title="Most voted answers" class="chip grey darken-2 white-text">Votes</a>
+                <a href="/question/790367214896156672/test-question?sortby=newest" title="Newest answers" class="chip ">Newest</a>
+                </span>
+                <h4 ng-show="question.answers.length > 0" class="grey-text">Answers
+                    <small class="grey-text">{{question.answers.length}}</small>
+                </h4>
+                <h4 ng-hide="question.answers.length > 0" class="grey-text">Unanswered</h4>
+            </div>
+
+            <!-- Answers -->
+            <div class="page-content">
+
+                <!-- Answer -->
+                <div ng-repeat="answer in question.answers" class="postbox replybox">
+                    <hr>
+                    <div id="post-790641676421959680" class="viewbox mbm">
+                        <div class="postbody pvs" ng-bind-html="answer.body">
+                            <p>{{answer.body}}</p>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 m4 l4">
+                                <div class="left mtm mrl">
+                                </div>
+                                <div class="votebox hugeText mtm">
+                                    <i class="fa fa-chevron-up upvote grey-text mrs" title="Vote up"></i>
+                                    <i class="fa fa-chevron-down downvote grey-text mrs" title="Vote down"></i>
+                                    <span class="votecount">1</span>
+                                </div>
+                            </div>
+                            <div class="col s12 m3 l4">
+                                <div class="ptl center-align">
+                                    <div>Posted
+                                        <span am-time-ago="answer.createdAt"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12 m5 l4">
+                                <!-- User Card -->
+                                <div class="card pam">
+                                    <div class="row mbn userbox user-790641614346260480:profile">
+                                        <div class="col s4 m4 l3">
+                                            <a href="#" title="{{answer.userViewDTO.displayName}}">
+                                                <img src="https://avatars0.githubusercontent.com/u/2141621"
+                                                     width="50" height="50" alt="Profile picture">
+                                            </a>
+                                        </div>
+                                        <div class="col s8 m8 l9">
+                                            <!--<div class="right">-->
+                                                <!--<a class="dropdown-button grey-text" href="#"-->
+                                                   <!--data-constrainWidth="false" data-alignment="right"-->
+                                                   <!--data-activates="eaf2gEKgboyL5Q"><i-->
+                                                        <!--class="fa fa-ellipsis-v"></i></a>-->
+                                                <!--<ul id="eaf2gEKgboyL5Q" class="dropdown-content">-->
+                                                    <!--<li><a href="#main-modal" title="Report a problem"-->
+                                                           <!--data-fetch="/reports/form?parentid=790641614346260480:profile&type=profile&link=%2Fprofile%2F790641614346260480%3Aprofile"-->
+                                                           <!--class="modal-trigger ">-->
+                                                        <!--<span class="fa fa-flag"></span> Report-->
+                                                    <!--</a>-->
+                                                    <!--</li>-->
+                                                <!--</ul>-->
+                                            <!--</div>-->
+                                            <div>
+                                                <a href="/profile/790641614346260480/ryan-sipes"
+                                                   class="smallText">{{answer.userViewDTO.displayName}}</a>
+                                                <br>
+                                                <!--<span class="chip">10</span>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button ng-click="answer.editMode = !answer.editMode" ng-show="answer.isEditable" class="btn mtl waves-effect waves-light">Edit</button>
+                            </div>
+                        </div>
+                        <div ng-show="answer.editMode" class="card pam">
+                            <edit-answer-form
+                                    answer="answer"
+                            ></edit-answer-form>
+                        </div>
+                    </div>
+                    <div class="comments post-comments">
+                        <div class="page-content"></div>
+                    </div>
+                </div> <!-- Answer End -->
+            </div>
+
+            <a ng-hide="user.loggedIn" ng-href="/#/login?redirectUrl={{question.redirectUrl}}">
+                <button class="btn mtl waves-effect waves-light">Log In to answer questions</button>
+            </a>
+
+            <!-- Add Answer Form -->
+            <form ng-show="user.loggedIn" method="post" id="answer-question-form" ng-submit="submitAnswer()">
+
+                <!-- Angular Trix -->
+                <trix-editor
+                        class="trix-content"
+                        angular-trix
+                        ng-model="newAnswer.body"
+                        trix-initialize="trixInitialize(e, editor);"
+                        trix-change="trixChange(e, editor);"
+                        trix-selection-change="trixSelectionChange(e, editor);"
+                >
+                </trix-editor>
+
+                <div class="input-field hide">
+                    <i class="fa fa-map-marker ptm prefix grey-text"></i>
+                    <label for="location_text">Location</label>
+                    <input id="location_text" name="location" class="locationbox validate" type="text" value="" placeholder="Enter a query" autocomplete="off">
+                    <input type="hidden" name="latlng" value="">
+                    <input type="hidden" name="address" value="">
+                </div>
+                <div><i class="fa fa-save save-icon green-text hidden-save-icon" style="display: none;"></i> &nbsp;</div>
+                <button class="btn mtl waves-effect waves-light" type="submit">
+                    <i class="fa fa-paper-plane left"></i>Answer
+                </button>
+            </form>
+
+        </div>
+
+        <!-- Right hand side of page -->
+        <div class="col m12 l3">
+            <div class="card-panel">
+                <div class="mediumText pvs"><b>{{question.viewedCount}}</b> Views</div>
+                <div ng-show="question.answers.length > 0" class="mediumText pvs"><b>{{question.answers.length}}</b> Answers</div>
+                <div ng-hide="question.answers.length > 0" class="mediumText pvs">Unanswered</div>
+                <div class="mediumText pvs tooltipped" data-tooltip="Posted">
+                    <i class="fa fa-clock-o grey-text"></i>
+                    <span am-time-ago="question.createdAt"></span>
+                </div>
+                <div class="mediumText pvs tooltipped" data-tooltip="Last activity">
+                    <i class="fa fa-pencil-square grey-text"></i>
+                    <span title="12 July 2017, 18:23">
+                    3 hours ago
+                    </span>
+                </div>
+                <div class="mediumText pvs"><i class="fa fa-tags grey-text"></i> Tags</div>
+                <div class="mtm"></div>
+            </div>
+            <div class="card-panel similar mbl mediumText">
+                <div class="mbl">Similar posts</div>
+                <div>
+                    <small><i class="fa fa-caret-right grey-text"></i></small>
+                    <a href="/question/778153831979552768/can-we-comment-on-the-answers" class="smallText">Can
+                        we comment on the answers</a>
+                </div>
+                <div>
+                    <small><i class="fa fa-caret-right grey-text"></i></small>
+                    <a href="/question/776420006844960768/do-you-support-syntax-highlighting-yes"
+                       class="smallText">Do you support Syntax Highlighting? Yes!</a>
+                </div>
+                <div>
+                    <small><i class="fa fa-caret-right grey-text"></i></small>
+                    <a href="/question/769722940181712896/hello-world" class="smallText">Hello world</a>
+                </div>
+                <div>
+                    <small><i class="fa fa-caret-right grey-text"></i></small>
+                    <a href="/question/768353765915889664/test-1-2-3" class="smallText">Test 1 2 3</a>
+                </div>
+                <div>
+                    <small><i class="fa fa-caret-right grey-text"></i></small>
+                    <a href="/question/767483871917772800/could-you-explain-how-we-install-this-script-on-a-server-step-by-step"
+                       class="smallText">could you explain how we install this script on a server step by step
+                        ?</a>
+                </div>
+                <div>
+                    <small><i class="fa fa-caret-right grey-text"></i></small>
+                    <a href="/question/767459771522486272/test-for-same-tag" class="smallText">Test For same
+                        tag</a>
+                </div>
+                <div>
+                    <small><i class="fa fa-caret-right grey-text"></i></small>
+                    <a href="/question/750069288882147328/how-old-is-google" class="smallText">How old is
+                        google</a>
+                </div>
+                <div>
+                    <small><i class="fa fa-caret-right grey-text"></i></small>
+                    <a href="/question/741400328447987712/how-can-i-get-the-same-ssid-for-multiple-access-points"
+                       class="smallText">How can I get the same SSID for multiple access points</a>
+                </div>
+                <div>
+                    <small><i class="fa fa-caret-right grey-text"></i></small>
+                    <a href="/question/741399843523530752/how-does-a-computer-restart-itself" class="smallText">How
+                        does a computer restart itself</a>
+                </div>
+                <div>
+                    <small><i class="fa fa-caret-right grey-text"></i></small>
+                    <a href="/question/741399314886037504/what-is-the-curl-commandline-syntax-to-do-a-post-request"
+                       class="smallText">What is the cURL commandline syntax to do a POST request</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

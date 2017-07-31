@@ -1,0 +1,32 @@
+<div class="ptl">
+    <h2>Register</h2>
+    <hr>
+    <div class="ptl">
+        <form method="post" id="registration-form" ng-submit="register()">
+
+            <div class="input-field">
+                <input ng-model="registrationDetails.email" type="email" id="title_text" class="validate" length="255" minlength="6" required="">
+                <label for="title_text">QA Email</label>
+            </div>
+
+            <div class="input-field">
+                <input ng-model="registrationDetails.displayName" type="text" id="title_text" class="validate" length="255" minlength="6" required="">
+                <label for="title_text">Display Name</label>
+            </div>
+
+            <div class="input-field">
+                <input ng-model="registrationDetails.password" type="password" id="title_text" class="validate" length="255" minlength="6" required="">
+                <label for="title_text">Password</label>
+            </div>
+
+            <div class="input-field">
+                <input ng-model="registrationDetails.confirmPassword" type="password" id="title_text" class="validate" length="255" minlength="6" required="">
+                <label for="title_text">Confirm Password</label>
+            </div>
+
+            <button class="btn mtl waves-effect waves-light" type="submit">
+                <i class="fa fa-paper-plane left"></i>Go
+            </button>
+        </form>
+    </div>
+</div>

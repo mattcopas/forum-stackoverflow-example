@@ -1,0 +1,24 @@
+<form ng-submit="editQuestion()" method="POST">
+    <div class="input-field">
+        <!--<i class="fa fa-pencil fa-2x left grey-text"></i>-->
+        <input ng-model="question.title" type="text" id="title_text" class="validate" length="255" minlength="6" required="">
+        <label for="title_text">Title</label>
+        <div class="similar-posts pll mll mbs">
+
+        </div>
+    </div>
+
+    <!-- Angular Trix -->
+    <trix-editor
+            class="trix-content"
+            angular-trix
+            ng-model="question.body"
+            trix-initialize="trixInitialize(e, editor);"
+            trix-change="trixChange(e, editor);"
+            trix-selection-change="trixSelectionChange(e, editor);"
+    >
+    </trix-editor>
+    <button class="btn mtl waves-effect waves-light" type="submit">
+        <i class="fa fa-paper-plane left"></i>Edit
+    </button>
+</form>
